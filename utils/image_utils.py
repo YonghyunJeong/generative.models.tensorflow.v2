@@ -24,9 +24,10 @@ def print_or_save_sample_images(sample_images, max_print_size=num_examples_to_ge
                                 checkpoint_dir=checkpoint_dir):
   available_print_size = list(range(1, 26))
   assert max_print_size in available_print_size
-  if len(sample_images.shape) == 2:
+  if len(sample_images.shape) == 2: # [Batch, Height * Width]
     size = int(np.sqrt(sample_images.shape[1]))
-  elif len(sample_images.shape) > 2:
+    channel = 1
+  elif len(sample_images.shape) > 2: # [Batch, Height, Width, Channel]
     size = sample_images.shape[1]
     channel = sample_images.shape[3]
   else:
@@ -37,9 +38,14 @@ def print_or_save_sample_images(sample_images, max_print_size=num_examples_to_ge
     print_images = print_images.reshape([max_print_size, size, size, channel])
     print_images = print_images.swapaxes(0, 1)
     print_images = print_images.reshape([size, max_print_size * size, channel])
-
+    if channel == 1:
+        print_images = print_images[..., 0]
+    
     fig = plt.figure(figsize=(max_print_size, 1))
-    plt.imshow(print_images * 0.5 + 0.5)#, cmap='gray')
+    if channel == 1:
+        plt.imshow(print_images * 0.5 + 0.5, cmap='gray')
+    else:
+        plt.imshow(print_images * 0.5 + 0.5)
     plt.axis('off')
     
   else:
@@ -51,10 +57,16 @@ def print_or_save_sample_images(sample_images, max_print_size=num_examples_to_ge
     print_images = print_images.reshape([size, max_print_size * size, channel])
     print_images = [print_images[:,i*size*num_columns:(i+1)*size*num_columns] for i in range(num_columns)]
     print_images = np.concatenate(tuple(print_images), axis=0)
+    if channel == 1:
+        print_images = print_images[..., 0]
     
     fig = plt.figure(figsize=(num_columns, num_columns))
     plt.subplots_adjust(left=0.0, right=1.0, top=1.0, bottom=0.0)
-    plt.imshow(print_images * 0.5 + 0.5)#, cmap='gray')
+    
+    if channel == 1:
+        plt.imshow(print_images * 0.5 + 0.5, cmap='gray')
+    else:
+        plt.imshow(print_images * 0.5 + 0.5)
     plt.axis('off')
     
   if is_save and epoch is not None:
@@ -73,6 +85,7 @@ def print_or_save_sample_images_two(sample_images1, sample_images2, max_print_si
 
   if len(sample_images1.shape) == 2:
     size = int(np.sqrt(sample_images1.shape[1]))
+    channel = 1
   elif len(sample_images1.shape) > 2:
     size = sample_images1.shape[1]
     channel = sample_images1.shape[3]
@@ -91,10 +104,17 @@ def print_or_save_sample_images_two(sample_images1, sample_images2, max_print_si
     print_images2 = print_images2.reshape([size, max_print_size * size, channel])
 
     print_images = np.concatenate((print_images1, print_images2), axis=0)
+    if channel == 1:
+        print_images = print_images[..., 0]
      
     plt.figure(figsize=(max_print_size, 2))
     plt.axis('off')
-    plt.imshow(print_images)#, cmap='gray')
+    
+    if channel == 1:
+        plt.imshow(print_images * 0.5 + 0.5, cmap='gray')
+    else:
+        plt.imshow(print_images * 0.5 + 0.5)
+        
   else:
     print('This function is supported by `is_square=False` mode.')
 
