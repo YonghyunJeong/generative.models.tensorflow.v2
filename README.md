@@ -9,7 +9,7 @@ implemented by TensorFlow version 2.0 style
 ## Getting Started
 
 ### Prerequisites
-* [`TensorFlow`](https://www.tensorflow.org) 2.0 (except `normalizing_flow/nice.ipynb` which is based on tf version 1.13.1)
+* [`TensorFlow`](https://www.tensorflow.org) 2.0
 * Python 3.6
 * Python libraries:
   * `numpy`, `matplotlib`, `PIL`, `imageio`
