@@ -135,6 +135,21 @@ Generative Adversarial Networks paper [arXiv:1511.06434](https://arxiv.org/abs/1
 |---|---|
 | <img src='https://user-images.githubusercontent.com/11681225/57566516-50764780-7408-11e9-90f3-86ffd90ce8d2.png'> | <img src='https://user-images.githubusercontent.com/11681225/57566515-50764780-7408-11e9-919d-e5f973d8c02e.png'> |
 
+#### Transformer with MNIST
+* Attention is All You Need [arXiv:1706.03762](https://arxiv.org/abs/1706.03762)
+* [transformer_mnist.ipynb](https://nbviewer.jupyter.org/github/scpark20/generative.models.tensorflow.v2/blob/master/autoregressive/transformer_mnist.ipynb)
+
+| *MNIST* |
+|---|
+| <img src='autoregressive/pics/transformer_mnist.png'> |
+
+#### LSTM with MNIST
+* [lstm_mnist.ipynb](https://nbviewer.jupyter.org/github/scpark20/generative.models.tensorflow.v2/blob/master/autoregressive/lstm_mnist.ipynb)
+
+| *MNIST* |
+|---|
+| <img src='autoregressive/pics/lstm_mnist.png'> |
+
 
 ### Normalizing Flow Models [with MNIST]
 
