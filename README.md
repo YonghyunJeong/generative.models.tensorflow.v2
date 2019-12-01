@@ -1,6 +1,6 @@
 # Generative models with tensorflow version 2.0 style
-* Final update: 2019. 05. 17.
-* All right reserved @ Il Gu Yi 2019
+* Final update: 2019. 12. 1.
+* All right reserved @ Il Gu Yi and Soochul Park
 
 This repository is a collection of various generative models (GAN, VAE, Normalizing flow, Autoregressive models, etc)
 implemented by TensorFlow version 2.0 style
