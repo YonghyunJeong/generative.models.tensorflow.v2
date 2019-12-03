@@ -162,4 +162,4 @@ Generative Adversarial Networks paper [arXiv:1511.06434](https://arxiv.org/abs/1
 Il Gu Yi, Soochul Park
 
 ### Slides
-[Notion link](https://www.notion.so/Generative-models-620a774dc63143ddbe168fac4dbc423b)
+[Notion link](https://www.notion.so/soochul/Generative-Models-12-4-6-353a0bbc5e0847fab4c864fb4332d9af?showMoveTo=true)
