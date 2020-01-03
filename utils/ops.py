@@ -10,7 +10,7 @@ from tensorflow.keras import layers
 class Conv(tf.keras.Model):
   def __init__(self, filters, kernel_size, strides, padding='same',
                activation='relu', apply_batchnorm=True, norm_momentum=0.9, norm_epsilon=1e-5,
-               leaky_relu_alpha=0.2, name='conv_layer'):
+               leaky_relu_alpha=0.2, name='conv_layer', kernel_constraint=None):
     super(Conv, self).__init__(name=name)
     assert activation in ['relu', 'leaky_relu', 'none']
     self.activation = activation
@@ -22,6 +22,7 @@ class Conv(tf.keras.Model):
                               strides=strides,
                               padding=padding,
                               kernel_initializer=tf.random_normal_initializer(0., 0.02),
+                              kernel_constraint=kernel_constraint,
                               use_bias=not self.apply_batchnorm)
     if self.apply_batchnorm:
       self.batchnorm = layers.BatchNormalization(momentum=norm_momentum,
